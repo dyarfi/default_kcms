@@ -1,0 +1,308 @@
+
+/* Global */
+
+html, body {
+	height: 100%;
+}
+html {
+	overflow-y: scroll; /* deal with page shift in FF and Safari */
+}
+body {	
+	font-size: 12px;
+	min-width: 960px;
+}
+.clear {
+	clear: both;	
+}
+.hide {
+	display: none;
+}
+strong {
+	font-weight: bold;	
+}
+p {
+	padding-bottom: 20px;	
+}
+#wrapper {	
+	height: auto;
+	min-height: 100%;
+	z-index: 1;
+	position: relative;	
+}
+dt { 
+	float: left; 
+	clear: left;
+	width: 10%;
+	padding-right: 2%;
+}
+dd { 
+	width: 88%;
+}
+dd input {
+	width: 70%;	
+	height: 25px;
+	padding-left: 5px;
+}
+.tabs ul li {
+	margin-bottom: 5px;
+	display: block;	
+}
+.tabs ul li input {
+	height: 26px;
+	padding-left: 5px;
+}
+
+/* Launchpad */
+
+#launchpad {
+	padding: 50px;	
+	position: relative;
+}
+#launchpad_like {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	height: 25px;
+	width: 50px;	
+}
+#launchpad_vimeo, #launchpad_github, #launchpad_twitter, #launchpad_sample {
+	width: 342px;
+	height: 48px;
+	display: block;		
+	margin-bottom: 5px;
+	background-image: url('../images/sprite_launchpad.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;	
+}
+#launchpad_github {
+	background-position: 0px -48px;
+}
+#launchpad_twitter {
+	background-position: 0px -96px;
+}
+#launchpad_sample {
+	background-position: 0px -144px;
+}
+#launchpad_sample_links {
+	margin: 10px 0 0 30px;	
+}
+#launchpad_sample_links a {
+	display: block;
+	float: left;
+	clear: left;
+	padding: 10px;
+	margin-bottom: 5px;
+	background-color: #F1F1F1;		
+	color: #666;
+	font-size: 11px;	
+	font-family: Courier;
+	text-decoration: none;	
+}
+#launchpad_sample_links a:hover {
+	text-decoration: underline;
+}
+
+/* Builder */
+
+#header {
+	background-color: #fff;
+	padding: 15px;
+}
+#request {
+	float: left;
+}
+#method {
+	float: left;
+	font-size: 1.2em;
+}
+#url {
+	width: 489px;
+	height: 34px;
+	float: left;
+	font-size: 14px;
+	padding-left: 5px;
+	font-family: Courier;
+}
+input:-moz-placeholder {
+	color: #ccc; 
+}
+::-webkit-input-placeholder {
+	color: #ccc; 	
+}
+#settings {
+	display: block;
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin: 7px 7px 0 7px;
+	background-image: url('../images/gear.png');	
+	position: relative;
+}
+#settings span {
+	width: 23px;
+	height: 12px;
+	background: url('../images/tip.png');	
+	position: absolute;
+	display: none;
+	top: 34px;
+	left: -1px;
+}
+#submit {
+	float: left;
+	font-size: 1.35em;
+	margin: 0 0 0 5px;
+}
+#loader {
+	width: 32px;
+	height: 32px;
+	float: left;
+	margin: -1px 0 0 30px;
+	display: none;
+	background-image: url('../images/loader.gif');
+}
+
+/* Configuration */
+
+#config {
+	padding: 15px;
+	margin: 0 15px 15px 15px;
+	display: none;
+	background-color: #F7F5F5;
+}
+#config_data {
+	min-height: 85px;
+}
+#config_headers {
+	min-height: 45px;
+}
+#config_data_type {
+	margin-bottom: 10px;
+}
+#add_data, #add_header {
+	float: right;
+}
+#config_data_body textarea {
+	width: 75%;
+	height: 125px;
+}
+#config_settings {
+	margin-top: 15px;
+}
+#config_settings dl dt {
+	padding-top: 7px;
+	text-align: right;
+	color: #999;
+}
+#config_settings dl dd {
+	margin-bottom: 20px;
+}
+
+.post_rows dt input {
+	width: 100%;
+}
+.post_rows dt { 
+	width: 20%;
+	padding-right: 1%;
+}
+.post_rows dd { 
+	width: 78%;
+}
+.post_rows dd input { 
+	width: 55%;
+}
+
+#add_header, #add_data {
+	margin-bottom: 10px;
+}
+#config_about {
+	padding-top: 25px;	
+}
+
+/* Message */
+
+#message {
+	display: none;
+}
+.ui-state-error, .ui-state-highlight {
+	font-size: 12px;
+	padding: 15px 15px 0 15px;
+	margin: 15px;
+	margin-top: 0;
+}
+.ui-state-error .ui-icon, .ui-state-highlight .ui-icon {
+	float: left; 
+	margin: -1px 8px 0 0;
+}
+
+/* Response */
+
+#response {
+	display: none;
+	font-size: 1.15em;
+	margin: 0 15px;
+}
+pre, pre.prettyprint {
+	overflow-y: hidden;
+	overflow-x: auto;
+}
+pre, pre.prettyprint, #config_data_body textarea {
+	padding: 18px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	font-family: Courier;
+	font-size: 13px;
+}
+#response_cookies table {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: 18px;
+	font-size: 13px;
+}
+#response_cookies thead tr th {
+	padding-bottom: 15px;
+	font-weight: bold;
+}
+#response_cookies tbody tr td {
+	font-family: Courier;
+	padding-bottom: 5px;
+}
+#response_cookies tbody tr td.empty {
+	font-family: inherit;
+	text-align: center;
+	padding: 50px;
+}
+#cookie_faq {
+	font-size: .8em;
+	margin-top: 10px;
+}
+
+/* Footer */
+
+#footer_spacer {
+	height: 65px; /* to imitate footer height */	
+	width: 100px;
+	clear: both;
+}
+#footer {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 47px; /* for ie7 */
+	bottom: 0 !important;
+	bottom: 0px; /* for ie6 */
+}
+#getstarted {
+	float: right;
+	margin-right: 15px;
+	display: none;
+}
+#copyright {
+	float: left;
+	margin: 20px 0 0 15px;
+	font-size: 11px;
+	font-family: Arial;
+}
+#copyright, #copyright a {
+	color: #666;
+}

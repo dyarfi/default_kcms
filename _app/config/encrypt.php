@@ -1,0 +1,1 @@
+<?php defined('SYSPATH') OR die('No direct access allowed.');return array(	'default' => array (			'key' => 'x'.COMPANY_NAME.'_2012_key'		),);

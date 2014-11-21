@@ -1,0 +1,166 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  /*padding-bottom: 40px;*/
+  /*color: #5a5a5a;*/
+}
+
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: relative;
+  z-index: 15;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+/* Carousel base class */
+.carousel {
+  /*margin-bottom: 60px;*/
+
+  /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+  /*margin-top: -90px;*/
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  /*background-color: #777;*/
+  background: transparent;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+#myCarousel {
+	padding: 10px 0px;
+	margin: -20px auto 0 auto;
+	line-height: normal;
+	height: 122px;
+	/*border: 1px solid #990000;*/
+}
+#myCarousel .carousel-inner {
+	height: 100px;
+	/*border: 1px solid #990000;*/
+	max-width: 886px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0px;
+}
+#myCarousel .item {
+	display: inline-table;
+	margin: 0 0 0 0px;
+	overflow: hidden;
+}
+#myCarousel .mid-slider {
+	/*border: 1px solid #990000;*/
+	width: 196px;
+	height: 100px;
+	display: inline-table;
+	position: relative;
+	margin: 0 10px 0 10px;
+}
+#myCarousel .carousel-control {
+	background: none;
+	outline: none;
+	height: 100px;
+}
+
+.product-item h4 {
+	position: absolute;
+	background: rgba(17, 62, 121, 0.8);
+	display: block;
+	bottom: 0px;
+	right: 0px;
+	left:0px;
+	margin: 0 auto;
+	font-size: 1.1em;
+	line-height: 1em;
+	text-align: right;
+	padding: 5px 12px 8px 0px;
+}
+.product-item a {
+	text-decoration: none;
+	font-weight: normal;
+	color: #fff
+}
+.product-item a:hover {
+	color: #028eed
+}
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Remove the edge padding needed for mobile */
+  .marketing {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}

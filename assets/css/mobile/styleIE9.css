@@ -1,0 +1,16 @@
+#languageWrp {
+    width: 135px;
+}
+
+#topNav .widgetNav {
+    width: 230px;
+}
+#topNav .widgetLink {
+    width: 310px;
+}
+#widgetWrp01 .widgetContact div .addres{
+	line-height:14px;
+}
+#widgetWrp02 #widgetCol ul li{
+	min-height:155px;
+}
