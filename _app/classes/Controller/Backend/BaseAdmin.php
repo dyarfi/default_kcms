@@ -22,10 +22,10 @@ class Controller_Backend_BaseAdmin extends Controller_Themes_DefaultAdmin {
         parent::before();		
 		
 		/** Set time **/
-		$this->now      = time();
+		$this->now		= time();
 		
 		/** Set language **/
-        $this->lang		= i18n::$lang;
+		$this->lang		= i18n::$lang;
 		
 		/** Define current Controller and Action **/
 		$this->controller	= strtolower($this->request->controller());
@@ -33,8 +33,8 @@ class Controller_Backend_BaseAdmin extends Controller_Themes_DefaultAdmin {
 				
 		/** Set Request params **/		
 		$this->id1 = Request::$current->param('id1');
-        $this->id2 = Request::$current->param('id2');
-        $this->id3 = Request::$current->param('id3');
+		$this->id2 = Request::$current->param('id2');
+		$this->id3 = Request::$current->param('id3');
 		$this->id4 = Request::$current->param('id4');
 		$this->id5 = Request::$current->param('id5');
 		
@@ -48,12 +48,14 @@ class Controller_Backend_BaseAdmin extends Controller_Themes_DefaultAdmin {
 
     public function action_index() {
 		
-		if ($this->acl->user == '') {
-			/** Delete available sessions **/
-			$this->session->delete('level_id','module_list','module_function_list');
+	if ($this->acl->user == '') {
+		/** Delete available sessions **/
+		$this->session->delete('level_id');
+		$this->session->delete('module_list');
+		$this->session->delete('module_function_list');
 			
-			/** Redirect to authentication **/
-			$this->redirect(ADMIN . 'authentication');
+		/** Redirect to authentication **/
+		$this->redirect(ADMIN . 'authentication');
         } else {
 			/** Redirect to dashboards **/
 			$this->redirect(str_replace('{admin_id}', $this->session->get('user_id'), Lib::config('admin.default_page')));

@@ -11,17 +11,17 @@ class Model_DownloadType extends Model_Database {
 	public function __construct () {
 		parent::__construct();
 
-		$this->_model_vars	= array('id'				=> 0,
-									'name'				=> '',
-									'subject'			=> '',
-									'description'		=> '',
-									'visible'			=> 0,
-									'user_id'			=> 0,
-									'count'				=> 0,
-									'order'				=> 0,
-									'status'			=> '',
-									'added'				=> 0,
-									'modified'			=> 0);
+		$this->_model_vars	= array('id'                    => 0,
+                                                'name'			=> '',
+                                                'subject'		=> '',
+                                                'description'		=> '',
+                                                'visible'		=> 0,
+                                                'user_id'		=> 0,
+                                                'count'			=> 0,
+                                                'order'			=> 0,
+                                                'status'		=> '',
+                                                'added'			=> 0,
+                                                'modified'		=> 0);
 
 		$this->db		= Database::instance();
 		$this->tbl_name	= $this->table;
@@ -62,12 +62,12 @@ class Model_DownloadType extends Model_Database {
 		// Insert Default Data
 		if ($insert_data) {
 			$sql	= 'INSERT INTO `'.$this->table.'` '
-					. '(`id`, `name`, `subject`, `description`, `order`, `status`, `added`, `modified`) '
+					. '(`id`, `name`, `subject`, `description`, `visible`, `user_id`, `count`, `order`, `status`, `added`, `modified`) '
 					. 'VALUES '
-					. '(1, \'arus-hayat-voice-note\', \'Arus Hayat Voice Note\', \'Dengarkan Kumpulan Voice Note\', 0, 0,1,0,0, \'publish\', '.time().', 0), '
-					. '(2, \'garis-besar-cerita\', \'Garis Besar Cerita\', \'Garis Besar Cerita Description\', 0, 0,1,0,0, \'publish\', '.time().', 0), '
-					. '(3, \'kidung\', \'Kidung\', \'Kumpulan kidung-kidung Kristiani\', 0, 0,1,0,0, \'publish\', '.time().', 0), '
-					. '(4, \'arus-hayat\', \'Arus Hayat\', \' Arus Hayat Buku Seri Pelajaran Hayat\', 0, 0,1,0,0, \'publish\', '.time().', 0)';
+					. '(1, \'arus-hayat-voice-note\', \'Arus Hayat Voice Note\', \'Dengarkan Kumpulan Voice Note\', 1,1,0,0, \'publish\', '.time().', 0), '
+					. '(2, \'garis-besar-cerita\', \'Garis Besar Cerita\', \'Garis Besar Cerita Description\', 1,1,0,0, \'publish\', '.time().', 0), '
+					. '(3, \'kidung\', \'Kidung\', \'Kumpulan kidung-kidung Kristiani\', 1,1,0,0, \'publish\', '.time().', 0), '
+					. '(4, \'arus-hayat\', \'Arus Hayat\', \' Arus Hayat Buku Seri Pelajaran Hayat\', 1,1,0,0, \'publish\', '.time().', 0)';
 
 			$this->db->query('INSERT',$sql);
 		}

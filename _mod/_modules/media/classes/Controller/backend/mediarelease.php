@@ -28,11 +28,11 @@ class Controller_Backend_MediaRelease extends Controller_Backend_BaseAdmin {
 				
 		$this->_prefilter_keys = array('media_id');
 		
-		$this->_prefs = (Lib::config($this->_class_name.'.'.$this->_class_name.'_fields') !== NULL) ? Lib::config($this->_class_name.'.'.$this->_class_name.'_fields') : array();
+		$this->_prefs = (Lib::config($this->_module_name.'.'.$this->_class_name.'_fields') !== NULL) ? Lib::config($this->_module_name.'.'.$this->_class_name.'_fields') : array();
 		
-		$this->_upload_path = (Lib::config($this->_class_name.'.upload_path') !== NULL) ? Lib::config($this->_class_name.'.upload_path') : array();
+		$this->_upload_path = (Lib::config($this->_module_name.'.upload_path') !== NULL) ? Lib::config($this->_module_name.'.upload_path') : array();
 		
-		$this->_upload_url = (Lib::config($this->_class_name.'.upload_url') !== NULL) ? Lib::config($this->_class_name.'.upload_url') : array();
+		$this->_upload_url = (Lib::config($this->_module_name.'.upload_url') !== NULL) ? Lib::config($this->_module_name.'.upload_url') : array();
 
 		
 		$this->mediarelease	= new Model_MediaRelease;
