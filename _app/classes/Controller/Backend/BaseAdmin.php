@@ -50,6 +50,7 @@ class Controller_Backend_BaseAdmin extends Controller_Themes_DefaultAdmin {
 		
 	if ($this->acl->user == '') {
 		/** Delete available sessions **/
+		$this->session->delete('user_id');
 		$this->session->delete('level_id');
 		$this->session->delete('module_list');
 		$this->session->delete('module_function_list');

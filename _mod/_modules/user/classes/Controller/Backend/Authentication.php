@@ -61,8 +61,8 @@ class Controller_Backend_Authentication extends Controller_Backend_BaseAdmin {
 						Model_UserHistory::instance()->install();
 
 						// Authenticate User Accounts and return User ID
-						$user       = new Model_User();
-						$return		= $user->authenticate($request['email'], sha1($request['password']), '');
+						$user   = new Model_User();
+						$return	= $user->authenticate($request['email'], sha1($request['password']), '');
 						
 						// Check User Level from User ID given
 						$user_level		= $user->get_user_level($return);
