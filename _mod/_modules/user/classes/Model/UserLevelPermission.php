@@ -73,60 +73,60 @@ class Model_UserLevelPermission extends Model_Database {
 	}
 	
 	public function load ($id = '') {
-		$return_object	= TRUE;
+	    $return_object	= TRUE;
 
-		if ($id == '') {
-			$return_object	= FALSE;
-			$id				= $this->id;
+	    if ($id == '') {
+		$return_object	= FALSE;
+		$id				= $this->id;
+	    }
+
+	    $objects	= $this->find(array('id' => $id), '', 1);
+
+	    if (count($objects) == 1) {
+		if ($return_object) {
+		    return $objects[0];
+		} else {
+		    $vars	= array_keys($this->_model_vars);
+
+		    foreach ($vars as $var) {
+			    $this->$var	= $objects[0]->$var;
+		    }
+
+		    return TRUE;
 		}
+	    }
 
-		$objects	= $this->find(array('id' => $id), '', 1);
-		
-		if (count($objects) == 1) {
-			if ($return_object) {
-				return $objects[0];
-			} else {
-				$vars	= array_keys($this->_model_vars);
-
-				foreach ($vars as $var) {
-					$this->$var	= $objects[0]->$var;
-				}
-
-				return TRUE;
-			}
-		}
-
-		return FALSE;
+	    return FALSE;
 	}
 
 	public function add ($params = '') {
-		if (!is_array($params)) return;
+	    if (!is_array($params)) return;
 
-		unset($this->_model_vars['id']);
-		
-		$params	= array_merge($this->_model_vars, $params);
+	    unset($this->_model_vars['id']);
 
-		$query = DB::insert($this->tbl_name, array_keys($params))->values(array_values($params))->execute();
+	    $params	= array_merge($this->_model_vars, $params);
 
-		if (count($query) !== FALSE)
-			$insert_id	= mysql_insert_id();
-		else
-			return FALSE;
+	    $query = DB::insert($this->tbl_name, array_keys($params))->values(array_values($params))->execute();
 
-		return $insert_id;
+	    if (count($query) !== FALSE)
+		    $insert_id	= mysql_insert_id();
+	    else
+		    return FALSE;
+
+	    return $insert_id;
 	}
 
 	public function update () {
-		$this->modified	= time();
-		$object_vars	= get_object_vars($this);
-		
-		unset($object_vars['_model_vars'], $object_vars['db']);
-		
-		$object_vars = Arr::overwrite($this->_model_vars,$object_vars);
-		
-		$result = DB::update($this->tbl_name)->set($object_vars)->where('id', '=', $this->id)->execute();
-		
-		return $result;
+	    $this->modified	= time();
+	    $object_vars	= get_object_vars($this);
+
+	    unset($object_vars['_model_vars'], $object_vars['db']);
+
+	    $object_vars = Arr::overwrite($this->_model_vars,$object_vars);
+
+	    $result = DB::update($this->tbl_name)->set($object_vars)->where('id', '=', $this->id)->execute();
+
+	    return $result;
 	}
 
 	public function delete ($id = '') {
@@ -247,10 +247,10 @@ class Model_UserLevelPermission extends Model_Database {
 
 		// Check backend permission
 		if(!$user_permission[0]->backend_access) {
-			// Set flash alert to session
-			$this->session->set('auth_error', 'You have no access');
-			// Redirect if have no access to backend / admin-panel
-			Request::$current->redirect(ADMIN . 'authentication/noaccess');
+		    // Set flash alert to session
+		    Session::instance()->set('auth_error', 'You have no access');
+		    // Redirect if have no access to backend / admin-panel
+		    HTTP::redirect(ADMIN . 'authentication/noaccess');
 		}
 		
 		// Load user admin menu modules

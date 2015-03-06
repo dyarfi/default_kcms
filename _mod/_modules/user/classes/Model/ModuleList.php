@@ -5,7 +5,7 @@ class Model_ModuleList extends Model_Database {
 	protected $tbl_name;
 	protected $_model_vars;
 	protected $db; 
-    protected $tbl_prefix;
+	protected $tbl_prefix;
 	protected static $_instance;
 
 	public function __construct () {
@@ -488,15 +488,18 @@ class Model_ModuleList extends Model_Database {
 		if($user_level == '')
 			return array();
 	
-		$modules			= array();
+		$modules		= array();
 	
 		// Check admin url
-		$where_cond			= array('id'	=> $user_level);
+		$where_cond		= array('id'	=> $user_level);
 		$user_permission	= Model_UserLevel::instance()->find($where_cond, '', 1);
 		
 		// Check backend permission
 		if(!$user_permission[0]->backend_access) {
-			Request::$current->redirect(ADMIN . 'authentication');
+		    // Set flash alert to session
+		    Session::instance()->set('auth_error', 'You have no access');
+		    // Redirect if have no access to backend / admin-panel
+		    HTTP::redirect(ADMIN . 'authentication/noaccess');
 		}
 		
 		$modules['User']		= Lib::config('admin.module_menu');

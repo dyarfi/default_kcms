@@ -63,10 +63,10 @@ class Controller_Backend_BaseAdmin extends Controller_Themes_DefaultAdmin {
 		}
     }
 
-	public function after() { 
-		/** Parent After in DefaultAdmin **/
-		parent::after();
-				
-	}
+    public function after() { 
+	    /** Parent After in DefaultAdmin **/
+	    parent::after();
+
+    }
 
 } 
