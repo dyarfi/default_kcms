@@ -4,7 +4,7 @@ return array
 (
 	'default' => array
 	(
-		'type'       => 'mysql',
+		'type'       => 'MySQL',
 		'connection' => array(
 			/**
 			 * The following options are available for MySQL:
@@ -44,6 +44,7 @@ return array
 			'username'   => 'extend',
 			'password'   => 'extend',
 			'persistent' => FALSE,
+			'options' => array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
 		),
 		/**
 		 * The following extra options are available for PDO:
